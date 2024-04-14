@@ -24,3 +24,15 @@ CREATE TABLE <TABLE_NAME> (<ATTR_NAME> <ATTR_TYPE>, ...);
 ```
 github.com/gorilla/mux
 ```
+
+### File Structure
+- middleware
+    - handler.go `(server logic)`
+
+- models
+    - stocks.go `(sql model for table)`
+
+- router
+    - router.go `(controller for routing http)`
+
+- main.go
