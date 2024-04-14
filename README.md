@@ -20,3 +20,7 @@ Create Table
 ```
 CREATE TABLE <TABLE_NAME> (<ATTR_NAME> <ATTR_TYPE>, ...);
 ```
+### Required dependencies
+```
+github.com/gorilla/mux
+```
