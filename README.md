@@ -1,5 +1,9 @@
 # golang-postgres
-## Basic postgres commands
+
+## Connect with SQL using the default `database/sql` module
+The advantage of this type is, the user can write the required SQL queries instead of depending on ORM APIs
+
+### Basic postgres commands
 Start postgres server
 ```
 sudo service postgresql start
