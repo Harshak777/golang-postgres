@@ -144,7 +144,7 @@ func insertStock(stock models.Stock) int64 {
 	db := createConnection()
 	defer db.Close()
 
-	sqlStatement := `INSERT INTO stocks(name, price, comapny) VALUES(%1, $2, $3) RETURNING stockid`
+	sqlStatement := `INSERT INTO stocks(name, price, company) VALUES($1, $2, $3) RETURNING stockid`
 
 	var id int64
 	err := db.QueryRow(sqlStatement, stock.Name, stock.Price, stock.Company).Scan(&id)
@@ -168,7 +168,7 @@ func getStock(id int64) (models.Stock, error) {
 
 	row := db.QueryRow(sqlStatement, id)
 
-	err := row.Scan(&stock.StockID, &stock.Name, &stock.Company)
+	err := row.Scan(&stock.StockID, &stock.Name, &stock.Price, &stock.Company)
 
 	switch err {
 	case sql.ErrNoRows:
@@ -200,7 +200,7 @@ func getAllStock() ([]models.Stock, error) {
 	for rows.Next() {
 		var stock models.Stock
 
-		err := rows.Scan(&stock.StockID, &stock.Name, &stock.Company)
+		err := rows.Scan(&stock.StockID, &stock.Name, &stock.Price, &stock.Company)
 
 		if err != nil {
 			log.Fatalf("Unable to scan the row. %v", err)
