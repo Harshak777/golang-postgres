@@ -24,6 +24,7 @@ CREATE TABLE <TABLE_NAME> (<ATTR_NAME> <ATTR_TYPE>, ...);
 ```
 github.com/gorilla/mux
 github.com/joho/godotenv
+github.com/lib/pq (To point to the sql driver)
 ```
 
 ### File Structure
